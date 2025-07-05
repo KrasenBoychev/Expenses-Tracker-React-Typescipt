@@ -18,6 +18,7 @@ export interface ContextDataInterface {
 export interface InitialValuesInterface {
     email: string,
     password: string,
+    rePass?: string,
 }
 
 export interface FormErrorsInterface {
