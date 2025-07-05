@@ -23,7 +23,6 @@ userRouter.post('/login',
       userId: result._id,
       email: result.email,
       accessToken,
-      userCart: result.cart
     });
   } catch (err) {
       res.status(403).json({ code: 403, message: 'Incorrect email or password' });
