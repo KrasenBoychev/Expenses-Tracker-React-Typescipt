@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -36,11 +35,7 @@ export default function Login() {
         navigate("/");
       }
     } catch (e: unknown) {
-      console.log(e instanceof Error);
-
       if (e instanceof Error) {
-        console.log(e.message);
-
         return toast.error(e.message);
       }
     }
