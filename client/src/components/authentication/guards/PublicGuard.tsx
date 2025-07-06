@@ -5,6 +5,6 @@ export default function PublicGuard() {
   const { isAuthenticated } = useAuthContext();
 
   return isAuthenticated
-      ? <Navigate to="/logout" />
+      ? <Navigate to="/" />
       : <Outlet />;
 }
