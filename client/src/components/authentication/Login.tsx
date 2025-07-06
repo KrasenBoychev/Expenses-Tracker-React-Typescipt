@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useLogin } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
@@ -14,7 +14,6 @@ const initialValues = { email: "", password: "" };
 export default function Login() {
   const login = useLogin();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [errors, setErrors] = useState<FormErrorsInterface>({});
 
@@ -28,12 +27,7 @@ export default function Login() {
 
     try {
       await login(email, password);
-
-      if (location.state && location.state.length > 0) {
-        navigate(`${location.state}`);
-      } else {
-        navigate("/");
-      }
+      navigate("/");
     } catch (e: unknown) {
       if (e instanceof Error) {
         return toast.error(e.message);

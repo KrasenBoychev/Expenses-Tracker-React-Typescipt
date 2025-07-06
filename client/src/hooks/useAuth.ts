@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
 import { login, logout, register } from '../api/requester';
-
 import { useAuthContext } from '../contexts/AuthContext';
 
 export const useLogin = () => {
