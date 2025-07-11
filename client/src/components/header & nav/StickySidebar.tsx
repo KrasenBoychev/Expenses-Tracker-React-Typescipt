@@ -25,9 +25,9 @@ export default function StickySidebar() {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <rect width="18" height="18" x="3" y="3" rx="2" />
               <path d="M15 3v18" />
@@ -51,8 +51,8 @@ export default function StickySidebar() {
                 <path
                   d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                 />
               </svg>
             </li>
@@ -109,13 +109,13 @@ export default function StickySidebar() {
                   d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12"
                   className="stroke-blue-600 dark:stroke-white"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <path
                   d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12"
                   className="stroke-blue-600 dark:stroke-white"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <circle
                   cx="13"
@@ -152,9 +152,9 @@ export default function StickySidebar() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                       <polyline points="9 22 9 12 15 12 15 22" />
@@ -176,9 +176,9 @@ export default function StickySidebar() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                       <circle cx="9" cy="7" r="4" />
@@ -202,9 +202,9 @@ export default function StickySidebar() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <circle cx="18" cy="15" r="3" />
                       <circle cx="9" cy="7" r="4" />
@@ -235,9 +235,9 @@ export default function StickySidebar() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
                       <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
@@ -259,9 +259,9 @@ export default function StickySidebar() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
                       <line x1="16" x2="16" y1="2" y2="6" />
@@ -291,9 +291,9 @@ export default function StickySidebar() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                       <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
@@ -317,9 +317,9 @@ export default function StickySidebar() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="m3 10 2.5-2.5L3 5" />
                       <path d="m3 19 2.5-2.5L3 14" />
@@ -336,9 +336,9 @@ export default function StickySidebar() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="m18 15-6-6-6 6" />
                     </svg>
@@ -350,9 +350,9 @@ export default function StickySidebar() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="m6 9 6 6 6-6" />
                     </svg>

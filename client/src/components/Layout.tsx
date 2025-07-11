@@ -13,7 +13,7 @@ import HomeAuth from "./home/HomeAuth";
 export default function Layout() {
   const { isAuthenticated } = useAuthContext();
   return (
-    <div className="max-w-3xl flex flex-col mx-auto size-full">
+    <div className="max-w-full flex flex-col mx-auto size-full">
       {!isAuthenticated && <Header />}
 
       <main id="content">

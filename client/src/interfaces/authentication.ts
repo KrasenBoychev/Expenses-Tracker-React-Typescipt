@@ -1,5 +1,3 @@
-export interface DataRequesterInterface extends FormErrorsInterface { }
-
 export interface AuthDataInterface {
     userId: string,
     email: string,
@@ -10,6 +8,7 @@ export interface ContextDataInterface {
     userId: string,
     email: string,
     accessToken: string,
+    budgets: string[],
     isAuthenticated: boolean,
     changeAuthState: Function,
     logout: Function,
