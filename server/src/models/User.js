@@ -14,9 +14,9 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    cart: { 
+    budgets: { 
         type: [ Types.ObjectId ], 
-        ref: 'Light' 
+        ref: 'Budget' 
     }
 });
 const User = model('users', UserSchema);
