@@ -1,4 +1,4 @@
-import type { DataRequesterInterface } from '../interfaces/authentication';
+import type { DataRequesterInterface } from '../interfaces/api';
 import { getAccessToken } from '../utils/authUtils';
 
 export const settings = {
