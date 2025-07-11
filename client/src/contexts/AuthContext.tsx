@@ -9,6 +9,7 @@ import type {
 export const AuthContext = createContext<ContextDataInterface>({
   userId: "",
   email: "",
+  budgets: [],
   accessToken: "",
   isAuthenticated: false,
   changeAuthState: (authState = {}) => null,
@@ -29,6 +30,7 @@ export function AuthContextProvider(props: React.PropsWithChildren) {
   const contextData: ContextDataInterface = {
     userId: authState?.userId,
     email: authState?.email,
+    budgets: authState?.budgets,
     accessToken: authState?.accessToken,
     isAuthenticated: !!authState?.email,
     changeAuthState,
