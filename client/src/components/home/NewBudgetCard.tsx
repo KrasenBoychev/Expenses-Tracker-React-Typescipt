@@ -25,13 +25,15 @@ export default function NewBudgetCard({ setBudgetsToRender }: any) {
     }
   };
   return (
-    <div className="flex flex-col gap-8 w-[250px] h-[270px] text-center bg-white border border-gray-200 shadow-2xs rounded-xl">
+    <div className="flex flex-col gap-8 w-[250px] h-[270px] text-center bg-gray-200 border border-gray-200 shadow-2xs rounded-xl">
       <div className="flex flex-col gap-8 p-4 md:p-6">
         <h3 className="text-xl font-semibold text-blue-600">
           New Expenses Tracker Name
         </h3>
         <input
           className="mt-3 text-gray-500 dark:text-neutral-500 rounded"
+          type="text"
+          value={budgetName}
           onChange={(e) => setBudgetName(e.target.value)}
         />
       </div>
