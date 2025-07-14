@@ -22,6 +22,6 @@ export async function getSinglePeriod(periodId: string) {
   return await api.post(host + "/period/singlePeriod", { periodId });
 }
 
-export async function createNewPeriod(periodName: string) {
-  return await api.post(host + "/period/newPeriod", { periodName });
+export async function createNewPeriod(periodDate: Date, budgetId: string) {
+  return await api.post(host + "/period/newPeriod", { periodDate, budgetId });
 }
