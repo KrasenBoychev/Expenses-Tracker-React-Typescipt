@@ -5,6 +5,10 @@ async function getBudgets(budgetsIds) {
   return Budget.find({ _id: { $in: budgetsIds } }).lean();
 }
 
+async function getSingleBudget(budgetId) {
+  return Budget.find({ _id: budgetId }).lean();
+}
+
 async function createNewBudget(data) {
   const newBudget = new Budget({
     budgetName: data.budgetName,
@@ -23,5 +27,6 @@ async function createNewBudget(data) {
 
 module.exports = {
   getBudgets,
+  getSingleBudget,
   createNewBudget,
 };
