@@ -14,6 +14,7 @@ export interface BudgetMiddlewarePropInterface {
     budget: BudgetInterface | null,
 }
 
-export interface SetPageToRenderPropInterface {
+export interface StickySidebarPropsInterface {
     setPageToRender: Function,
+    budget: BudgetInterface | null
 }
