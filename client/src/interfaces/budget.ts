@@ -9,3 +9,11 @@ export interface BudgetInterface {
 export interface BudgetPropInterface {
     budget: BudgetInterface,
 }
+
+export interface BudgetMiddlewarePropInterface {
+    budget: BudgetInterface | null,
+}
+
+export interface SetPageToRenderPropInterface {
+    setPageToRender: Function,
+}
