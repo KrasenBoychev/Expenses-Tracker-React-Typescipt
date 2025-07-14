@@ -1,10 +1,32 @@
 import { Link } from "react-router-dom";
 import type { StickySidebarPropsInterface } from "../../interfaces/budget";
+import { useEffect, useState } from "react";
 
 export default function StickySidebar({
   setPageToRender,
   budget,
+  periods,
 }: StickySidebarPropsInterface) {
+  const [totalSavings, setTotalSavings] = useState<Number>(0);
+
+  useEffect(() => {
+    let totalIncome: number = 0;
+    let totalPlannedExpense: number = 0;
+
+    if (periods && periods?.length > 0) {
+      periods.forEach((period) => {
+        totalIncome += period.income;
+
+        if (period.plannedExpenses.length > 0) {
+          period.plannedExpenses.forEach((expense) => {
+            totalPlannedExpense += expense.value;
+          });
+        }
+      });
+    }
+    setTotalSavings(totalIncome - totalPlannedExpense);
+  }, [periods]);
+
   return (
     <>
       <div
@@ -89,7 +111,7 @@ export default function StickySidebar({
                 <li>
                   <p className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:text-neutral-200 hs-scrollspy-active:bg-gray-100 dark:hs-scrollspy-active:bg-neutral-700">
                     <i className="fa-solid fa-piggy-bank"></i>
-                    Total Savings: number??
+                    Total Savings: {totalSavings.toString()}
                   </p>
                 </li>
 
