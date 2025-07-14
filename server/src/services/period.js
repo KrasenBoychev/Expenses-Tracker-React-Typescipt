@@ -2,8 +2,8 @@ const { Budget } = require("../models/Budget");
 const { Period } = require("../models/Period");
 const { User } = require("../models/User");
 
-async function getPeriods(budgetsIds) {
-  //   return Budget.find({ _id: { $in: budgetsIds } }).lean();
+async function getPeriods(periodsIds) {
+  return Period.find({ _id: { $in: periodsIds } }).lean();
 }
 
 async function getSinglePeriod(budgetId) {
@@ -11,16 +11,21 @@ async function getSinglePeriod(budgetId) {
 }
 
 async function createNewPeriod(data) {
-  //   const newBudget = new Budget({
-  //     budgetName: data.budgetName,
-  //     members: [data.userId],
-  //   });
-  //   await newBudget.save();
-  //   await User.updateOne(
-  //     { _id: data.userId },
-  //     { $addToSet: { budgets: newBudget._id } }
-  //   );
-  //   return newBudget;
+  const newPeriod = new Period({
+    startDate: data.startDate,
+    endDate: null,
+    income: 0,
+    plannedExpenses: [],
+    actualExpenses: [],
+    budgetId: data.budgetId,
+  });
+  await newPeriod.save();
+
+  await Budget.updateOne(
+    { _id: data.budgetId },
+    { $addToSet: { allPeriods: newPeriod._id } }
+  );
+  return newPeriod;
 }
 
 module.exports = {
