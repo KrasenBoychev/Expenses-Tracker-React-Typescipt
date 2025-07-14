@@ -9,6 +9,7 @@ import PrivateGuard from "./authentication/guards/PrivateGuard";
 import Register from "./authentication/Register";
 import Logout from "./authentication/Logout";
 import HomeAuth from "./home/HomeAuth";
+import BudgetMiddleware from "./budget/BudgetMiddleware";
 
 export default function Layout() {
   const { isAuthenticated } = useAuthContext();
@@ -31,6 +32,7 @@ export default function Layout() {
 
           <Route element={<PrivateGuard />}>
             <Route path="/logout" element={<Logout />} />
+            <Route path="/:budgetId" element={<BudgetMiddleware />} />
           </Route>
         </Routes>
       </main>
