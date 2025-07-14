@@ -5,6 +5,7 @@ import { getAllBudgets } from "../../api/expenses-api";
 import { useAuthContext } from "../../contexts/AuthContext";
 import BudgetCard from "./BudgetCard";
 import type { BudgetInterface } from "../../interfaces/budget";
+import toast from "react-hot-toast";
 
 export default function HomeAuth() {
   const [budgetsToRender, setBudgetsToRender] = useState<BudgetInterface[]>([]);
@@ -13,8 +14,14 @@ export default function HomeAuth() {
 
   useEffect(() => {
     (async () => {
-      const allBudgets = await getAllBudgets(budgets);
-      setBudgetsToRender(allBudgets);
+      try {
+        const allBudgets = await getAllBudgets(budgets);
+        setBudgetsToRender(allBudgets);
+      } catch (e: unknown) {
+        if (e instanceof Error) {
+          return toast.error(e.message);
+        }
+      }
     })();
   }, []);
   return (
