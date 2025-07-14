@@ -13,3 +13,15 @@ export async function getSingleBudget(budgetId: string) {
 export async function createNewBudget(budgetName: string) {
   return await api.post(host + "/budget/newBudget", { budgetName });
 }
+
+export async function getAllPeriods(periodsIds: string[]) {
+  return await api.post(host + "/period/budgetPeriods", { periodsIds });
+}
+
+export async function getSinglePeriod(periodId: string) {
+  return await api.post(host + "/period/singlePeriod", { periodId });
+}
+
+export async function createNewPeriod(periodName: string) {
+  return await api.post(host + "/period/newPeriod", { periodName });
+}
