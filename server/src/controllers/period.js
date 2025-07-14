@@ -11,8 +11,8 @@ const periodRouter = Router();
 
 periodRouter.post("/budgetPeriods", async (req, res) => {
   try {
-    // const allBudgets = await getBudgets(req.body.budgetsIds);
-    // res.json(allBudgets);
+    const allBudgetPeriods = await getPeriods(req.body.periodsIds);
+    res.json(allBudgetPeriods);
   } catch (err) {
     const parsed = parseError(err);
     res.status(403).json({ code: 403, message: parsed.errors });
@@ -31,12 +31,12 @@ periodRouter.post("/singlePeriod", async (req, res) => {
 
 periodRouter.post("/newPeriod", isUser(), async (req, res) => {
   try {
-    // const data = {
-    //   budgetName: req.body.budgetName,
-    //   userId: req.user._id,
-    // };
-    // const newBudget = await createNewBudget(data);
-    // res.json(newBudget);
+    const data = {
+      startDate: req.body.periodDate,
+      budgetId: req.body.budgetId,
+    };
+    const newPeriod = await createNewPeriod(data);
+    res.json(newPeriod);
   } catch (err) {
     const parsed = parseError(err);
     res.status(403).json({ code: 403, message: parsed.errors });
