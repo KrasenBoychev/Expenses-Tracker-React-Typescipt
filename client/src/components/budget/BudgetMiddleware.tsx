@@ -29,7 +29,7 @@ export default function BudgetMiddleware() {
 
         if (getPeriods.length == 0) {
           const newPeriod = await createNewPeriod(new Date(), getBudget._id);
-          setPeriods(newPeriod);
+          setPeriods([newPeriod]);
         } else {
           setPeriods(getPeriods);
         }
@@ -49,14 +49,15 @@ export default function BudgetMiddleware() {
         budget={budget}
         periods={periods}
       />
-      {pageToRender == "budgetOverview" && (
+      {budget && periods && pageToRender == "budgetOverview" ? (
         <BudgetOverview budget={budget} periods={periods} />
-      )}
-      {pageToRender == "addIncomeOrExpense" && (
+      ) : pageToRender == "addIncomeOrExpense" ? (
         <BudgetAddIncomeExpense budget={budget} />
+      ) : pageToRender == "cards" ? (
+        <BudgetCards budget={budget} />
+      ) : (
+        pageToRender == "members" && <BudgetMembers budget={budget} />
       )}
-      {pageToRender == "cards" && <BudgetCards budget={budget} />}
-      {pageToRender == "members" && <BudgetMembers budget={budget} />}
     </>
   );
 }
