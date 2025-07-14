@@ -1,6 +1,5 @@
 const { Router } = require("express");
-const { body, validationResult } = require("express-validator");
-const { isGuest, isUser } = require("../middlewares/guards");
+const { isUser } = require("../middlewares/guards");
 const { parseError } = require("../util");
 const {
   getBudgets,
