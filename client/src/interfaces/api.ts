@@ -4,7 +4,7 @@ export interface DataRequesterInterface extends FormErrorsInterface {
     budgetName?: string
     budgetsIds?: string[],
     budgetId?: string,
-    periodName?: string
+    periodDate?: Date,
     periodsIds?: string[],
     periodId?: string,
 }
