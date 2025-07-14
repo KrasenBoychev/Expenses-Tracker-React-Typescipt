@@ -7,7 +7,7 @@ export default function StickySidebar({
   budget,
   periods,
 }: StickySidebarPropsInterface) {
-  const [totalSavings, setTotalSavings] = useState<Number>(0);
+  const [totalSavings, setTotalSavings] = useState<number>(0);
 
   useEffect(() => {
     let totalIncome: number = 0;
@@ -111,7 +111,7 @@ export default function StickySidebar({
                 <li>
                   <p className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:text-neutral-200 hs-scrollspy-active:bg-gray-100 dark:hs-scrollspy-active:bg-neutral-700">
                     <i className="fa-solid fa-piggy-bank"></i>
-                    Total Savings: {totalSavings.toString()}
+                    Total Savings: {totalSavings}
                   </p>
                 </li>
 
