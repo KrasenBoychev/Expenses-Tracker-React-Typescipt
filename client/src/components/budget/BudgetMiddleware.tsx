@@ -29,7 +29,7 @@ export default function BudgetMiddleware() {
   }, []);
   return (
     <>
-      <StickySidebar setPageToRender={setPageToRender} />
+      <StickySidebar setPageToRender={setPageToRender} budget={budget} />
       {pageToRender == "budgetOverview" && <BudgetOverview budget={budget} />}
       {pageToRender == "addIncomeOrExpense" && (
         <BudgetAddIncomeExpense budget={budget} />
