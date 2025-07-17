@@ -31,9 +31,8 @@ export default function StickySidebar({
     <>
       <div
         id="hs-application-sidebar"
-        className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform
-                   w-65 h-full fixed inset-y-0 start-0 z-60 bg-white border-e border-gray-200
-                   block translate-x-0 end-auto bottom-0 dark:bg-neutral-800 dark:border-neutral-700"
+        className="w-65 h-full fixed inset-y-0 start-0 z-60 bg-white border-e border-gray-200
+                   block translate-x-0 end-auto bottom-0"
         aria-label="Sidebar"
       >
         <div className="relative flex flex-col h-full max-h-full">
