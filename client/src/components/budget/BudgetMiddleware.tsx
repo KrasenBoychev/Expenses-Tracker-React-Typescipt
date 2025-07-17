@@ -7,7 +7,7 @@ import {
   getSingleBudget,
 } from "../../api/expenses-api";
 import toast from "react-hot-toast";
-import BudgetOverview from "./BudgetOverview";
+import BudgetOverview from "./Budget Overview/BudgetOverview";
 import BudgetAddIncomeExpense from "./BudgetAddIncomeExpense";
 import BudgetCards from "./BudgetCards";
 import BudgetMembers from "./BudgetMembers";
