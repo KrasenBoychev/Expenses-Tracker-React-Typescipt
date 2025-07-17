@@ -8,8 +8,8 @@ export interface BudgetInterface {
 
 export interface PeriodInterface {
     _id: string,
-    startDate: Date,
-    endDate: Date,
+    startDate: string,
+    endDate: string | null,
     income: number,
     plannedExpenses: ExpenseInterface[],
     actualExpenses: ExpenseInterface[],
@@ -38,4 +38,13 @@ export interface StickySidebarPropsInterface {
     setPageToRender: Function,
     budget: BudgetInterface | null
     periods: PeriodInterface[] | null
+}
+
+export interface SelectedPeriodPropsInterface {
+    selectedPeriod: PeriodInterface,
+    periods: PeriodInterface[] | null,
+}
+
+export interface SelectedPeriodPropInterface {
+    selectedPeriod: PeriodInterface,
 }
