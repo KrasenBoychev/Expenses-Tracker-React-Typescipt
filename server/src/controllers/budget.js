@@ -10,6 +10,7 @@ const {
   getMembers,
   addNewMember,
   removeMember,
+  addIncome,
 } = require("../services/budget");
 
 const budgetRouter = Router();
@@ -96,6 +97,17 @@ budgetRouter.post("/members/removeMember", async (req, res) => {
   try {
     const { memberId, budgetId } = req.body;
     const result = await removeMember(memberId, budgetId);
+    res.json(result);
+  } catch (err) {
+    const parsed = parseError(err);
+    res.status(403).json({ code: 403, message: parsed.errors });
+  }
+});
+
+budgetRouter.post("/addIncome", async (req, res) => {
+  try {
+    const { periodId, incomeToAdd } = req.body;
+    const result = await addIncome(periodId, incomeToAdd);
     res.json(result);
   } catch (err) {
     const parsed = parseError(err);
