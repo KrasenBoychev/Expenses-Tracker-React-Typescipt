@@ -5,12 +5,14 @@ interface StickySidebarProps {
   setPageToRender: Function;
   budget: BudgetInterface | null;
   periods: PeriodInterface[] | null;
+  updateTotalSavings: boolean;
 }
 
 export default function StickySidebar({
   setPageToRender,
   budget,
   periods,
+  updateTotalSavings,
 }: StickySidebarProps) {
   const [totalSavings, setTotalSavings] = useState<number>(0);
 
@@ -30,7 +32,7 @@ export default function StickySidebar({
       });
     }
     setTotalSavings(totalIncome - totalPlannedExpense);
-  }, [periods]);
+  }, [periods, updateTotalSavings]);
 
   return (
     <>
@@ -92,7 +94,7 @@ export default function StickySidebar({
                   </p>
                 </li>
 
-                <li>
+                {/* <li>
                   <p
                     className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 cursor-pointer focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:text-neutral-200 hs-scrollspy-active:bg-gray-100 dark:hs-scrollspy-active:bg-neutral-700"
                     onClick={() => setPageToRender("cards")}
@@ -100,7 +102,7 @@ export default function StickySidebar({
                     <i className="fa-solid fa-credit-card"></i>
                     Cards
                   </p>
-                </li>
+                </li> */}
 
                 <li>
                   <p
@@ -115,7 +117,7 @@ export default function StickySidebar({
                 <li>
                   <p className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:text-neutral-200 hs-scrollspy-active:bg-gray-100 dark:hs-scrollspy-active:bg-neutral-700">
                     <i className="fa-solid fa-piggy-bank"></i>
-                    Total Savings: {totalSavings}
+                    Total Savings: {totalSavings.toFixed(2)}
                   </p>
                 </li>
 
