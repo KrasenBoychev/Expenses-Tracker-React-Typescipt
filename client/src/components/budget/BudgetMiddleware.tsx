@@ -54,9 +54,11 @@ export default function BudgetMiddleware() {
       ) : pageToRender == "addIncomeOrExpense" ? (
         <BudgetAddIncomeExpense budget={budget} />
       ) : pageToRender == "cards" ? (
-        <BudgetCards budget={budget} />
+        <BudgetCards budget={budget} setBudget={setBudget} />
       ) : (
-        pageToRender == "members" && <BudgetMembers budget={budget} />
+        pageToRender == "members" && (
+          <BudgetMembers budget={budget} setBudget={setBudget} />
+        )
       )}
     </>
   );
