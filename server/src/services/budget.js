@@ -1,5 +1,6 @@
 const { Budget } = require("../models/Budget");
 const { User } = require("../models/User");
+const { Period } = require("../models/Period");
 
 async function getBudgets(budgetsIds) {
   return Budget.find({ _id: { $in: budgetsIds } }).lean();
@@ -69,6 +70,13 @@ async function removeMember(memberId, budgetId) {
   );
 }
 
+async function addIncome(periodId, incomeToAdd) {
+  return await Period.updateOne(
+    { _id: periodId },
+    { $inc: { income: incomeToAdd.toFixed(2) } }
+  );
+}
+
 module.exports = {
   getBudgets,
   getSingleBudget,
@@ -78,4 +86,5 @@ module.exports = {
   getMembers,
   addNewMember,
   removeMember,
+  addIncome,
 };
