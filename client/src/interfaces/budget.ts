@@ -48,3 +48,12 @@ export interface SelectedPeriodPropsInterface {
 export interface SelectedPeriodPropInterface {
     selectedPeriod: PeriodInterface,
 }
+
+export interface OptionsPropsInterface {
+    selectedPeriod: PeriodInterface,
+    setBudgetDetails: Function,
+}
+
+export interface ExpensesPropInterface {
+    expenses: ExpenseInterface[],
+}
