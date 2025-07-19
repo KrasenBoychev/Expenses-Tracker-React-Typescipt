@@ -2,7 +2,7 @@ export interface BudgetInterface {
     _id: string,
     budgetName: string,
     allPeriods: string[],
-    cards: string[],
+    cards: CardInterface[],
     members: string[],
 }
 
@@ -21,5 +21,13 @@ export interface ExpenseInterface {
     value: number,
 }
 
+export interface CardInterface {
+    cardName: string,
+    ownerEmail: string,
+}
 
+export interface MemberInterface {
+    _id: string,
+    email: string,
+}
 
