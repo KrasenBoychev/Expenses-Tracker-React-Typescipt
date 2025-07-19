@@ -1,34 +1,42 @@
 import type { PeriodInterface } from "../../../../interfaces/budget";
-import ExpensesDetails from "./ExpensesDetails";
-
+import ActualExpenses from "./ActualExpenses";
+import PlannedExpenses from "./PlannedExpenses";
 interface BudgetDetailsProps {
-  selectedPeriod: PeriodInterface;
+  selectedPeriod: PeriodInterface | undefined;
+  setBudgetDetails: Function;
+  setPeriods: Function;
 }
 
-export default function BudgetDetails({ selectedPeriod }: BudgetDetailsProps) {
+export default function BudgetDetails({
+  selectedPeriod,
+  setBudgetDetails,
+  setPeriods,
+}: BudgetDetailsProps) {
   return (
     <div className="flex gap-10 w-[100%]">
+      <div
+        className="absolute top-[10px] left-[300px] p-1 bg-white text-black rounded hover:cursor-pointer"
+        onClick={() => setBudgetDetails((prev: boolean) => !prev)}
+      >
+        <i className="fa-solid fa-backward-step fa-sm px-1"></i>
+      </div>
       <div className="w-[50%] bg-gray-100 text-black">
         <div className="flex justify-center gap-1 p-2 border-b-1 border-black">
           <h5 className="text-xl">Planned Expenses</h5>
-          <button>
-            (<span className="underline hover:text-blue-500">add/remove</span>)
-          </button>
         </div>
-        <ExpensesDetails expenses={selectedPeriod.plannedExpenses} />
+        <PlannedExpenses
+          selectedPeriod={selectedPeriod}
+          setPeriods={setPeriods}
+        />
       </div>
       <div className="w-[50%] bg-gray-200 text-black">
         <div className="flex justify-center gap-1 p-2 border-b-1 border-black">
           <h5 className="text-xl">Actual Expenses</h5>
-          <button>
-            (
-            <span className="underline hover:text-blue-500">
-              match the values
-            </span>
-            )
-          </button>
         </div>
-        <ExpensesDetails expenses={selectedPeriod.actualExpenses} />
+        <ActualExpenses
+          selectedPeriod={selectedPeriod}
+          setPeriods={setPeriods}
+        />
       </div>
     </div>
   );
