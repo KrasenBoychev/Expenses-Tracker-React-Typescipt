@@ -5,6 +5,7 @@ const {
   getPeriods,
   getSinglePeriod,
   createNewPeriod,
+  createExpenseType,
 } = require("../services/period");
 
 const periodRouter = Router();
@@ -37,6 +38,17 @@ periodRouter.post("/newPeriod", isUser(), async (req, res) => {
     };
     const newPeriod = await createNewPeriod(data);
     res.json(newPeriod);
+  } catch (err) {
+    const parsed = parseError(err);
+    res.status(403).json({ code: 403, message: parsed.errors });
+  }
+});
+
+periodRouter.post("/newExpenseType", isUser(), async (req, res) => {
+  try {
+    const { newExpenseType, periodId } = req.body;
+    const result = await createExpenseType(newExpenseType, periodId);
+    res.json(result);
   } catch (err) {
     const parsed = parseError(err);
     res.status(403).json({ code: 403, message: parsed.errors });
