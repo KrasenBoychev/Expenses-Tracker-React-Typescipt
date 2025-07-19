@@ -23,10 +23,6 @@ export async function removeCard(cardDetails: CardInterface, budgetId: string) {
   return await api.post(host + "/budget/cards/removeCard", { cardDetails, budgetId });
 }
 
-export async function getAllPeriods(periodsIds: string[]) {
-  return await api.post(host + "/period/budgetPeriods", { periodsIds });
-}
-
 export async function getMembers(members: string[]) {
   return await api.post(host + "/budget/members/getMembers", { members });
 }
@@ -39,10 +35,22 @@ export async function removeMember(memberId: string, budgetId: string) {
   return await api.post(host + "/budget/members/removeMember", { memberId, budgetId });
 }
 
+export async function addIncome(periodId: string, incomeToAdd: number) {
+  return await api.post(host + "/budget/addIncome", { periodId, incomeToAdd });
+}
+
+export async function getAllPeriods(periodsIds: string[]) {
+  return await api.post(host + "/period/budgetPeriods", { periodsIds });
+}
+
 export async function getSinglePeriod(periodId: string) {
   return await api.post(host + "/period/singlePeriod", { periodId });
 }
 
 export async function createNewPeriod(periodDate: Date, budgetId: string) {
   return await api.post(host + "/period/newPeriod", { periodDate, budgetId });
+}
+
+export async function addPlannedExpenseType(newExpenseType: string, periodId: string) {
+  return await api.post(host + "/period/newExpenseType", { newExpenseType, periodId });
 }
