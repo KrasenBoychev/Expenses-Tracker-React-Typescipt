@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { PeriodInterface } from "../../../interfaces/budget";
 interface StatsProps {
-  selectedPeriod: PeriodInterface;
+  selectedPeriod: PeriodInterface | undefined;
 }
 
 export default function Stats({ selectedPeriod }: StatsProps) {
@@ -19,30 +19,30 @@ export default function Stats({ selectedPeriod }: StatsProps) {
     }
   }, [selectedPeriod]);
   return (
-    <div className="max-w-[85rem] py-20 mx-auto">
-      <div className="grid grid-cols-3 gap-30">
+    <div className="max-w-[800px] py-15 mx-auto">
+      <div className="flex flex-col flex-wrap gap-20">
         <div>
-          <h4 className="text-lg sm:text-xl font-semibold text-white uppercase">
+          <h4 className="text-2xl font-semibold text-white uppercase">
             Income
           </h4>
-          <p className="mt-2 sm:mt-3 text-2xl sm:text-6xl font-bold text-blue-600">
-            {selectedPeriod?.income}
+          <p className="text-4xl font-bold text-green-400">
+            {selectedPeriod!.income.toFixed(2)}
           </p>
         </div>
         <div>
-          <h4 className="text-lg sm:text-xl font-semibold text-white uppercase">
+          <h4 className="text-2xl font-semibold text-white uppercase">
             Planned to spend
           </h4>
-          <p className="mt-2 sm:mt-3 text-2xl sm:text-6xl font-bold text-blue-600">
-            {plannedExpenses}
+          <p className="text-4xl font-bold text-orange-400">
+            {plannedExpenses.toFixed(2)}
           </p>
         </div>
         <div>
-          <h4 className="text-lg sm:text-xl font-semibold text-white uppercase">
+          <h4 className="text-2xl font-semibold text-white uppercase">
             Planned to save
           </h4>
-          <p className="mt-2 sm:mt-3 text-2xl sm:text-6xl font-bold text-blue-600">
-            {savings}
+          <p className="text-4xl font-bold text-yellow-400">
+            {savings.toFixed(2)}
           </p>
         </div>
       </div>
