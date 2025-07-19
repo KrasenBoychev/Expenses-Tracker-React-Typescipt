@@ -6,10 +6,6 @@ async function getPeriods(periodsIds) {
   return Period.find({ _id: { $in: periodsIds } }).lean();
 }
 
-async function getSinglePeriod(budgetId) {
-  //   return Budget.find({ _id: budgetId }).lean();
-}
-
 async function createNewPeriod(data) {
   const newPeriod = new Period({
     startDate: data.startDate,
@@ -28,8 +24,17 @@ async function createNewPeriod(data) {
   return newPeriod;
 }
 
+async function createExpenseType(newExpenseType, periodId) {
+  return await Period.updateOne(
+    { _id: periodId },
+    {
+      $addToSet: { plannedExpenses: { expenseType: newExpenseType, value: 0 } },
+    }
+  );
+}
+
 module.exports = {
   getPeriods,
-  getSinglePeriod,
   createNewPeriod,
+  createExpenseType,
 };
