@@ -1,6 +1,10 @@
-import type { ExpensesPropInterface } from "../../../../interfaces/budget";
+import type { ExpenseInterface } from "../../../../interfaces/budget";
 
-export default function ExpensesDetails({ expenses }: ExpensesPropInterface) {
+interface ExpensesDetailsProps {
+  expenses: ExpenseInterface[];
+}
+
+export default function ExpensesDetails({ expenses }: ExpensesDetailsProps) {
   return (
     <div className="w-[100%] py-2">
       {expenses.length > 0 ? (

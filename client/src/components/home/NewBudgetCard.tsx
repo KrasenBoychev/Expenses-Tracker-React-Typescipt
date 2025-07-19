@@ -3,7 +3,13 @@ import { createNewBudget } from "../../api/expenses-api";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../../contexts/AuthContext";
 
-export default function NewBudgetCard({ setBudgetsToRender }: any) {
+interface NewBudgetCardProps {
+  setBudgetsToRender: Function;
+}
+
+export default function NewBudgetCard({
+  setBudgetsToRender,
+}: NewBudgetCardProps) {
   const [budgetName, setBudgetName] = useState<string>("");
   const authData = useAuthContext();
   const createNewTrackerHandler = async () => {

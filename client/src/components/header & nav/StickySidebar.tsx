@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
-import type { StickySidebarPropsInterface } from "../../interfaces/budget";
+import type { BudgetInterface, PeriodInterface } from "../../interfaces/budget";
 import { useEffect, useState } from "react";
+interface StickySidebarProps {
+  setPageToRender: Function;
+  budget: BudgetInterface | null;
+  periods: PeriodInterface[] | null;
+}
 
 export default function StickySidebar({
   setPageToRender,
   budget,
   periods,
-}: StickySidebarPropsInterface) {
+}: StickySidebarProps) {
   const [totalSavings, setTotalSavings] = useState<number>(0);
 
   useEffect(() => {

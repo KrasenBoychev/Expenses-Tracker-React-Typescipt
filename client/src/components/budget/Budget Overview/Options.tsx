@@ -1,9 +1,13 @@
-import type { OptionsPropsInterface } from "../../../interfaces/budget";
+import type { PeriodInterface } from "../../../interfaces/budget";
+interface OptionsProps {
+  selectedPeriod: PeriodInterface;
+  setBudgetDetails: Function;
+}
 
 export default function Options({
   selectedPeriod,
   setBudgetDetails,
-}: OptionsPropsInterface) {
+}: OptionsProps) {
   const budgetDetailsHandler = () => {
     setBudgetDetails(true);
   };

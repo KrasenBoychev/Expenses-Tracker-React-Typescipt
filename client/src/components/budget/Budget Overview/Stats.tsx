@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import type { SelectedPeriodPropInterface } from "../../../interfaces/budget";
+import type { PeriodInterface } from "../../../interfaces/budget";
+interface StatsProps {
+  selectedPeriod: PeriodInterface;
+}
 
-export default function Stats({ selectedPeriod }: SelectedPeriodPropInterface) {
+export default function Stats({ selectedPeriod }: StatsProps) {
   const [plannedExpenses, setPlannedExpenses] = useState<number>(0);
   const [savings, setSavings] = useState<number>(0);
 

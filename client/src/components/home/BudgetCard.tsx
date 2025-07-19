@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import type { BudgetPropInterface } from "../../interfaces/budget";
+import type { BudgetInterface } from "../../interfaces/budget";
+interface BudgetCardProps {
+  budget: BudgetInterface;
+}
 
-export default function BudgetCard({ budget }: BudgetPropInterface) {
+export default function BudgetCard({ budget }: BudgetCardProps) {
   const navigate = useNavigate();
   return (
     <div

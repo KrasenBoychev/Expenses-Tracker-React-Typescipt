@@ -1,7 +1,11 @@
 import { useState } from "react";
-import type { BudgetMiddlewarePropInterface } from "../../interfaces/budget";
+import type { BudgetInterface } from "../../interfaces/budget";
 
-export default function BudgetCards({ budget }: BudgetMiddlewarePropInterface) {
+interface BudgetCardsProps {
+  budget: BudgetInterface | null;
+}
+
+export default function BudgetCards({ budget }: BudgetCardsProps) {
   const [newCard, setNewCard] = useState<string>("");
 
   const addNewCardHandler = () => {

@@ -1,9 +1,14 @@
-import type { SelectedPeriodPropsInterface } from "../../../interfaces/budget";
+import type { PeriodInterface } from "../../../interfaces/budget";
+
+interface SelectPeriodProps {
+  selectedPeriod: PeriodInterface;
+  periods: PeriodInterface[] | null;
+}
 
 export default function SelectPeriod({
   selectedPeriod,
   periods,
-}: SelectedPeriodPropsInterface) {
+}: SelectPeriodProps) {
   const renderDate = (date: string) => {
     return new Date(date).toLocaleDateString();
   };

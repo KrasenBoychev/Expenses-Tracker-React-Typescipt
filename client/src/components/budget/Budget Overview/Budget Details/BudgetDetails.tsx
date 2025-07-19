@@ -1,20 +1,18 @@
-import type { SelectedPeriodPropInterface } from "../../../../interfaces/budget";
+import type { PeriodInterface } from "../../../../interfaces/budget";
 import ExpensesDetails from "./ExpensesDetails";
 
-export default function BudgetDetails({
-  selectedPeriod,
-}: SelectedPeriodPropInterface) {
+interface BudgetDetailsProps {
+  selectedPeriod: PeriodInterface;
+}
+
+export default function BudgetDetails({ selectedPeriod }: BudgetDetailsProps) {
   return (
     <div className="flex gap-10 w-[100%]">
       <div className="w-[50%] bg-gray-100 text-black">
         <div className="flex justify-center gap-1 p-2 border-b-1 border-black">
           <h5 className="text-xl">Planned Expenses</h5>
           <button>
-            (
-            <span className="underline hover:text-blue-500">
-              add/remove
-            </span>
-            )
+            (<span className="underline hover:text-blue-500">add/remove</span>)
           </button>
         </div>
         <ExpensesDetails expenses={selectedPeriod.plannedExpenses} />

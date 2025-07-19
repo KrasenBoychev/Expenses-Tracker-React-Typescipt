@@ -21,39 +21,5 @@ export interface ExpenseInterface {
     value: number,
 }
 
-export interface BudgetPropInterface {
-    budget: BudgetInterface,
-}
 
-export interface BudgetMiddlewarePropInterface {
-    budget: BudgetInterface | null,
-}
 
-export interface BudgetAndPeriodsPropsInterface {
-    budget: BudgetInterface | null,
-    periods: PeriodInterface[] | null
-}
-
-export interface StickySidebarPropsInterface {
-    setPageToRender: Function,
-    budget: BudgetInterface | null
-    periods: PeriodInterface[] | null
-}
-
-export interface SelectedPeriodPropsInterface {
-    selectedPeriod: PeriodInterface,
-    periods: PeriodInterface[] | null,
-}
-
-export interface SelectedPeriodPropInterface {
-    selectedPeriod: PeriodInterface,
-}
-
-export interface OptionsPropsInterface {
-    selectedPeriod: PeriodInterface,
-    setBudgetDetails: Function,
-}
-
-export interface ExpensesPropInterface {
-    expenses: ExpenseInterface[],
-}

@@ -1,7 +1,9 @@
-import type { BudgetMiddlewarePropInterface } from "../../interfaces/budget";
+import type { BudgetInterface } from "../../interfaces/budget";
 
-export default function BudgetMembers({ budget }: BudgetMiddlewarePropInterface) {
-  return (
-    <div>BudgetMembers</div>
-  )
+interface BudgetMembersProps {
+  budget: BudgetInterface | null;
+}
+
+export default function BudgetMembers({ budget }: BudgetMembersProps) {
+  return <div>BudgetMembers</div>;
 }

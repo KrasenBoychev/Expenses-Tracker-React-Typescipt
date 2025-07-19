@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type {
-  BudgetAndPeriodsPropsInterface,
+  BudgetInterface,
   PeriodInterface,
 } from "../../../interfaces/budget";
 import SelectPeriod from "./SelectPeriod";
@@ -8,10 +8,15 @@ import Stats from "./Stats";
 import Options from "./Options";
 import BudgetDetails from "./Budget Details/BudgetDetails";
 
+interface BudgetOverviewProps {
+  budget: BudgetInterface | null;
+  periods: PeriodInterface[] | null;
+}
+
 export default function BudgetOverview({
   budget,
   periods,
-}: BudgetAndPeriodsPropsInterface) {
+}: BudgetOverviewProps) {
   const [selectedPeriod, setSelectedPeriod] = useState<PeriodInterface>(
     periods![0]
   );
