@@ -1,7 +1,7 @@
 import type { PeriodInterface } from "../../../interfaces/budget";
 
 interface SelectPeriodProps {
-  selectedPeriod: PeriodInterface;
+  selectedPeriod: PeriodInterface | undefined;
   periods: PeriodInterface[] | null;
 }
 
@@ -17,11 +17,11 @@ export default function SelectPeriod({
       <select
         name="periods"
         id="periods"
-        defaultValue={selectedPeriod._id}
+        defaultValue={selectedPeriod!._id}
         className="w-[30%] text-black text-center appearance-none rounded cursor-pointer"
       >
-        <option value={selectedPeriod._id}>{`${renderDate(
-          selectedPeriod.startDate
+        <option value={selectedPeriod!._id}>{`${renderDate(
+          selectedPeriod!.startDate
         )} - now`}</option>
         {periods?.map((period, index) => {
           if (index !== 0) {

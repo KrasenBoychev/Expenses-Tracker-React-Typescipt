@@ -1,6 +1,6 @@
 import type { PeriodInterface } from "../../../interfaces/budget";
 interface OptionsProps {
-  selectedPeriod: PeriodInterface;
+  selectedPeriod: PeriodInterface | undefined;
   setBudgetDetails: Function;
 }
 
@@ -21,7 +21,7 @@ export default function Options({
       >
         Details
       </button>
-      {selectedPeriod?.endDate == null && (
+      {selectedPeriod!.endDate == null && (
         <button
           className="py-3 px-5 bg-red-500 rounded"
           onClick={completeBudgetHandler}
