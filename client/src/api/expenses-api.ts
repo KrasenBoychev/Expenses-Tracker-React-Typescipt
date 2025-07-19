@@ -1,3 +1,4 @@
+import type { CardInterface } from "../interfaces/budget.js";
 import * as api from "./requester.js";
 
 const host = api.settings.host;
@@ -14,8 +15,28 @@ export async function createNewBudget(budgetName: string) {
   return await api.post(host + "/budget/newBudget", { budgetName });
 }
 
+export async function createNewCard(cardName: string, budgetId: string) {
+  return await api.post(host + "/budget/cards/addNewCard", { cardName, budgetId });
+}
+
+export async function removeCard(cardDetails: CardInterface, budgetId: string) {
+  return await api.post(host + "/budget/cards/removeCard", { cardDetails, budgetId });
+}
+
 export async function getAllPeriods(periodsIds: string[]) {
   return await api.post(host + "/period/budgetPeriods", { periodsIds });
+}
+
+export async function getMembers(members: string[]) {
+  return await api.post(host + "/budget/members/getMembers", { members });
+}
+
+export async function createNewMember(memberEmail: string, budgetId: string) {
+  return await api.post(host + "/budget/members/addNewMember", { memberEmail, budgetId });
+}
+
+export async function removeMember(memberId: string, budgetId: string) {
+  return await api.post(host + "/budget/members/removeMember", { memberId, budgetId });
 }
 
 export async function getSinglePeriod(periodId: string) {
