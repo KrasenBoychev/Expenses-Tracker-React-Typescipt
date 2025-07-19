@@ -5,6 +5,11 @@ const {
   getBudgets,
   getSingleBudget,
   createNewBudget,
+  createNewCard,
+  removeCard,
+  getMembers,
+  addNewMember,
+  removeMember,
 } = require("../services/budget");
 
 const budgetRouter = Router();
@@ -38,6 +43,60 @@ budgetRouter.post("/newBudget", isUser(), async (req, res) => {
 
     const newBudget = await createNewBudget(data);
     res.json(newBudget);
+  } catch (err) {
+    const parsed = parseError(err);
+    res.status(403).json({ code: 403, message: parsed.errors });
+  }
+});
+
+budgetRouter.post("/cards/addNewCard", async (req, res) => {
+  try {
+    const { cardName, budgetId } = req.body;
+    const result = await createNewCard(cardName, budgetId, req.user.email);
+    res.json(result);
+  } catch (err) {
+    const parsed = parseError(err);
+    res.status(403).json({ code: 403, message: parsed.errors });
+  }
+});
+
+budgetRouter.post("/cards/removeCard", async (req, res) => {
+  try {
+    const { cardDetails, budgetId } = req.body;
+    const result = await removeCard(cardDetails, budgetId);
+    res.json(result);
+  } catch (err) {
+    const parsed = parseError(err);
+    res.status(403).json({ code: 403, message: parsed.errors });
+  }
+});
+
+budgetRouter.post("/members/getMembers", async (req, res) => {
+  try {
+    const result = await getMembers(req.body.members);
+    res.json(result);
+  } catch (err) {
+    const parsed = parseError(err);
+    res.status(403).json({ code: 403, message: parsed.errors });
+  }
+});
+
+budgetRouter.post("/members/addNewMember", async (req, res) => {
+  try {
+    const { memberEmail, budgetId } = req.body;
+    const result = await addNewMember(memberEmail, budgetId);
+    res.json(result);
+  } catch (err) {
+    const parsed = parseError(err);
+    res.status(403).json({ code: 403, message: parsed.errors });
+  }
+});
+
+budgetRouter.post("/members/removeMember", async (req, res) => {
+  try {
+    const { memberId, budgetId } = req.body;
+    const result = await removeMember(memberId, budgetId);
+    res.json(result);
   } catch (err) {
     const parsed = parseError(err);
     res.status(403).json({ code: 403, message: parsed.errors });
