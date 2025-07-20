@@ -58,3 +58,7 @@ export async function addPlannedExpenseType(periodId: string, newExpenseType: st
 export async function editPlannedExpense(periodId: string, expenseType: string, newExpenseValue: number) {
   return await api.post(host + "/period/editExpense", { periodId, expenseType, newExpenseValue });
 }
+
+export async function addActualExpense(periodId: string, expenseType: string, newExpenseValue: number) {
+  return await api.post(host + "/period/newActualExpense", { periodId, expenseType, newExpenseValue });
+}
