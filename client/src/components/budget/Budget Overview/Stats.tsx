@@ -39,7 +39,7 @@ export default function Stats({ selectedPeriod }: StatsProps) {
         </div>
         <div>
           <h4 className="text-2xl font-semibold text-white uppercase">
-            Planned to save
+            To save
           </h4>
           <p className="text-4xl font-bold text-yellow-400">
             {savings.toFixed(2)}

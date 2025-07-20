@@ -2,7 +2,7 @@ import { useState } from "react";
 import type {
   BudgetInterface,
   PeriodInterface,
-} from "../../../../../interfaces/budget";
+} from "../../../interfaces/budget";
 import AddIncome from "./AddIncome";
 import AddExpense from "./AddExpense";
 

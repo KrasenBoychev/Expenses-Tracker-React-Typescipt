@@ -8,7 +8,7 @@ import {
 } from "../../api/expenses-api";
 import toast from "react-hot-toast";
 import BudgetOverview from "./Budget Overview/BudgetOverview";
-import BudgetAddIncomeExpense from "./Budget Overview/Add Income/Expense/BudgetAddIncomeExpense";
+import BudgetAddIncomeExpense from "./Add Income&Expenses/BudgetAddIncomeExpense";
 import BudgetCards from "./BudgetCards";
 import BudgetMembers from "./BudgetMembers";
 import type { BudgetInterface, PeriodInterface } from "../../interfaces/budget";

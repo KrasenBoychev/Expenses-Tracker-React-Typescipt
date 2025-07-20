@@ -1,6 +1,6 @@
 import { useState } from "react";
-import type { PeriodInterface } from "../../../../../interfaces/budget";
-import { addIncome } from "../../../../../api/expenses-api";
+import type { PeriodInterface } from "../../../interfaces/budget";
+import { addIncome } from "../../../api/expenses-api";
 import toast from "react-hot-toast";
 
 interface AddIncomeProps {
