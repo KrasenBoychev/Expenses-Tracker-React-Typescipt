@@ -18,7 +18,14 @@ export default function ActualExpenses({
       selectedPeriod!.expenses.length > 0 ? (
         <ul className="px-2">
           {selectedPeriod!.expenses.map((expense, index) => (
-            <li key={index} className="flex justify-between g-1">
+            <li
+              key={index}
+              className={`flex justify-between g-1 p-1 ${
+                expense.actualExpenses <= expense.plannedExpenses
+                  ? "bg-green-200"
+                  : "bg-red-200"
+              }`}
+            >
               <div>{expense.expenseType}</div>
               <div>{expense.actualExpenses.toFixed(2)}</div>
             </li>

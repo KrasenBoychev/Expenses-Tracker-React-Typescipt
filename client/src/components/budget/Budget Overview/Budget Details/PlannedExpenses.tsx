@@ -88,7 +88,7 @@ export default function PlannedExpenses({
       <div className="w-[100%] py-2">
         <ul className="px-2">
           {selectedPeriod!.expenses.map((expense) => (
-            <li key={expense.expenseType} className="flex justify-between g-2">
+            <li key={expense.expenseType} className="flex justify-between g-2 p-1">
               <div className="flex justify-between w-[90%]">
                 <div>{expense.expenseType}</div>
                 <div>{expense.plannedExpenses.toFixed(2)}</div>
