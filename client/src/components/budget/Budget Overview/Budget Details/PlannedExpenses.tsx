@@ -134,6 +134,7 @@ export default function PlannedExpenses({
           editExpense={editExpense}
           periodId={selectedPeriod!._id}
           setPeriods={setPeriods}
+          setUpdateTotalSavings={setUpdateTotalSavings}
         />
       )}
     </>
