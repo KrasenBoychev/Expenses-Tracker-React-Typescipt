@@ -17,7 +17,7 @@ export default function AddIncome({
   const [inputValue, setInputValue] = useState<number | string>("0");
 
   const addValueHandler = async () => {
-    if (inputValue == "") {
+    if (inputValue == "" || Number(inputValue) <= 0) {
       return;
     }
 
