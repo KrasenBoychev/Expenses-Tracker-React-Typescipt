@@ -49,7 +49,9 @@ export default function BudgetAddIncomeExpense({
           setUpdateTotalSavings={setUpdateTotalSavings}
         />
       )}
-      {optionSelected == "addExpense" && <AddExpense currPeriod={currPeriod} />}
+      {optionSelected == "addExpense" && (
+        <AddExpense currPeriod={currPeriod} setPeriods={setPeriods} />
+      )}
     </div>
   );
 }
