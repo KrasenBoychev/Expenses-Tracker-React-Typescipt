@@ -51,6 +51,6 @@ export async function createNewPeriod(periodDate: Date, budgetId: string) {
   return await api.post(host + "/period/newPeriod", { periodDate, budgetId });
 }
 
-export async function addPlannedExpenseType(newExpenseType: string, periodId: string) {
-  return await api.post(host + "/period/newExpenseType", { newExpenseType, periodId });
+export async function addPlannedExpenseType(periodId: string, newExpenseType: string, newExpenseValue: number) {
+  return await api.post(host + "/period/newExpenseType", { periodId, newExpenseType, newExpenseValue });
 }

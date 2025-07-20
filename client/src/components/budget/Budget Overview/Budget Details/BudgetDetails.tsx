@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { PeriodInterface } from "../../../../interfaces/budget";
 import ActualExpenses from "./ActualExpenses";
 import PlannedExpenses from "./PlannedExpenses";
@@ -5,13 +6,17 @@ interface BudgetDetailsProps {
   selectedPeriod: PeriodInterface | undefined;
   setBudgetDetails: Function;
   setPeriods: Function;
+  setUpdateTotalSavings: Function;
 }
 
 export default function BudgetDetails({
   selectedPeriod,
   setBudgetDetails,
   setPeriods,
+  setUpdateTotalSavings,
 }: BudgetDetailsProps) {
+  const [expenseChangeDetection, setExpenseChangeDetection] =
+    useState<boolean>(false);
   return (
     <div className="flex gap-10 w-[100%]">
       <div
@@ -27,6 +32,8 @@ export default function BudgetDetails({
         <PlannedExpenses
           selectedPeriod={selectedPeriod}
           setPeriods={setPeriods}
+          setExpenseChangeDetection={setExpenseChangeDetection}
+          setUpdateTotalSavings={setUpdateTotalSavings}
         />
       </div>
       <div className="w-[50%] bg-gray-200 text-black">
@@ -36,6 +43,7 @@ export default function BudgetDetails({
         <ActualExpenses
           selectedPeriod={selectedPeriod}
           setPeriods={setPeriods}
+          expenseChangeDetection={expenseChangeDetection}
         />
       </div>
     </div>

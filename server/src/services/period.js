@@ -11,8 +11,7 @@ async function createNewPeriod(data) {
     startDate: data.startDate,
     endDate: null,
     income: 0,
-    plannedExpenses: [],
-    actualExpenses: [],
+    expenses: [],
     budgetId: data.budgetId,
   });
   await newPeriod.save();
@@ -24,11 +23,17 @@ async function createNewPeriod(data) {
   return newPeriod;
 }
 
-async function createExpenseType(newExpenseType, periodId) {
+async function createExpenseType(periodId, newExpenseType, newExpenseValue) {
   return await Period.updateOne(
     { _id: periodId },
     {
-      $addToSet: { plannedExpenses: { expenseType: newExpenseType, value: 0 } },
+      $addToSet: {
+        expenses: {
+          expenseType: newExpenseType,
+          plannedExpenses: newExpenseValue,
+          actualExpenses: 0,
+        },
+      },
     }
   );
 }

@@ -18,20 +18,20 @@ export default function StickySidebar({
 
   useEffect(() => {
     let totalIncome: number = 0;
-    let totalPlannedExpense: number = 0;
+    let totalPlannedExpenses: number = 0;
 
     if (periods && periods?.length > 0) {
       periods.forEach((period) => {
         totalIncome += period.income;
 
-        if (period.plannedExpenses.length > 0) {
-          period.plannedExpenses.forEach((expense) => {
-            totalPlannedExpense += expense.value;
+        if (period.expenses.length > 0) {
+          period.expenses.forEach((expense) => {
+            totalPlannedExpenses += expense.plannedExpenses;
           });
         }
       });
     }
-    setTotalSavings(totalIncome - totalPlannedExpense);
+    setTotalSavings(totalIncome - totalPlannedExpenses);
   }, [periods, updateTotalSavings]);
 
   return (

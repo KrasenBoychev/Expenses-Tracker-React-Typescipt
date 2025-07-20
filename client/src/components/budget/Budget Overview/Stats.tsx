@@ -9,13 +9,13 @@ export default function Stats({ selectedPeriod }: StatsProps) {
   const [savings, setSavings] = useState<number>(0);
 
   useEffect(() => {
-    if (selectedPeriod && selectedPeriod.plannedExpenses.length > 0) {
+    if (selectedPeriod && selectedPeriod.expenses.length > 0) {
       let plannedExpensesCounter: number = 0;
-      selectedPeriod.plannedExpenses.forEach((expense) => {
-        plannedExpensesCounter += expense.value;
+      selectedPeriod.expenses.forEach((expense) => {
+        plannedExpensesCounter += expense.plannedExpenses;
       });
       setPlannedExpenses(plannedExpensesCounter);
-      setSavings(selectedPeriod.income - plannedExpenses);
+      setSavings(selectedPeriod.income - plannedExpensesCounter);
     }
   }, [selectedPeriod]);
   return (

@@ -12,11 +12,7 @@ const PeriodSchema = new Schema({
     type: Number,
     default: 0,
   },
-  plannedExpenses: {
-    type: Array,
-    default: [],
-  },
-  actualExpenses: {
+  expenses: {
     type: Array,
     default: [],
   },

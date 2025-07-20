@@ -46,8 +46,12 @@ periodRouter.post("/newPeriod", isUser(), async (req, res) => {
 
 periodRouter.post("/newExpenseType", isUser(), async (req, res) => {
   try {
-    const { newExpenseType, periodId } = req.body;
-    const result = await createExpenseType(newExpenseType, periodId);
+    const { periodId, newExpenseType, newExpenseValue } = req.body;
+    const result = await createExpenseType(
+      periodId,
+      newExpenseType,
+      newExpenseValue
+    );
     res.json(result);
   } catch (err) {
     const parsed = parseError(err);

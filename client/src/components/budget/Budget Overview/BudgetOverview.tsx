@@ -12,12 +12,14 @@ interface BudgetOverviewProps {
   budget: BudgetInterface | null;
   periods: PeriodInterface[] | null;
   setPeriods: Function;
+  setUpdateTotalSavings: Function;
 }
 
 export default function BudgetOverview({
   budget,
   periods,
   setPeriods,
+  setUpdateTotalSavings,
 }: BudgetOverviewProps) {
   const [selectedPeriod, setSelectedPeriod] = useState<
     PeriodInterface | undefined
@@ -32,6 +34,7 @@ export default function BudgetOverview({
           selectedPeriod={selectedPeriod}
           setBudgetDetails={setBudgetDetails}
           setPeriods={setPeriods}
+          setUpdateTotalSavings={setUpdateTotalSavings}
         />
       ) : (
         <>

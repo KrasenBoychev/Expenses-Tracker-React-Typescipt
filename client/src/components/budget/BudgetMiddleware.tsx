@@ -57,6 +57,7 @@ export default function BudgetMiddleware() {
             budget={budget}
             periods={periods}
             setPeriods={setPeriods}
+            setUpdateTotalSavings={setUpdateTotalSavings}
           />
         ) : pageToRender == "addIncomeOrExpense" ? (
           <BudgetAddIncomeExpense

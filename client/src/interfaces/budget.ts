@@ -11,14 +11,14 @@ export interface PeriodInterface {
     startDate: string,
     endDate: string | null,
     income: number,
-    plannedExpenses: ExpenseInterface[],
-    actualExpenses: ExpenseInterface[],
+    expenses: ExpenseInterface[],
     budgetId: string,
 }
 
 export interface ExpenseInterface {
     expenseType: string,
-    value: number,
+    plannedExpenses: number,
+    actualExpenses: number,
 }
 
 export interface CardInterface {
