@@ -38,8 +38,18 @@ async function createExpenseType(periodId, newExpenseType, newExpenseValue) {
   );
 }
 
+async function editExpense(periodId, expenseType, newExpenseValue) {
+  return await Period.updateOne(
+    { _id: periodId, "expenses.expenseType": expenseType },
+    {
+      $set: { "expenses.$.plannedExpenses": newExpenseValue },
+    }
+  );
+}
+
 module.exports = {
   getPeriods,
   createNewPeriod,
   createExpenseType,
+  editExpense,
 };
