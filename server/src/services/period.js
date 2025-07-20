@@ -47,9 +47,19 @@ async function editExpense(periodId, expenseType, newExpenseValue) {
   );
 }
 
+async function createActualExpense(periodId, expenseType, newExpenseValue) {
+  return await Period.updateOne(
+    { _id: periodId, "expenses.expenseType": expenseType },
+    {
+      $inc: { "expenses.$.actualExpenses": newExpenseValue },
+    }
+  );
+}
+
 module.exports = {
   getPeriods,
   createNewPeriod,
   createExpenseType,
   editExpense,
+  createActualExpense,
 };
