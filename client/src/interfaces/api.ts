@@ -15,5 +15,6 @@ export interface DataRequesterInterface extends FormErrorsInterface {
     periodId?: string,
     incomeToAdd?: number,
     newExpenseType?: string,
+    expenseType?: string,
     newExpenseValue?: number,
 }
