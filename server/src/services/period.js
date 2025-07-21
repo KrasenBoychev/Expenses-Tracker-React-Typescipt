@@ -56,10 +56,28 @@ async function createActualExpense(periodId, expenseType, newExpenseValue) {
   );
 }
 
+async function matchExpensesValues(periodId, expensesTypes) {
+  const getPeriod = await Period.findById(periodId);
+
+  const newExpenses = [];
+  getPeriod.expenses.forEach((expense) => {
+    if (expensesTypes.includes(expense.expenseType)) {
+      expense.plannedExpenses = expense.actualExpenses;
+    }
+    newExpenses.push(expense);
+  });
+
+  getPeriod.expenses.splice(0, getPeriod.expenses.length, ...newExpenses);
+
+  await getPeriod.save();
+  return getPeriod;
+}
+
 module.exports = {
   getPeriods,
   createNewPeriod,
   createExpenseType,
   editExpense,
   createActualExpense,
+  matchExpensesValues,
 };
