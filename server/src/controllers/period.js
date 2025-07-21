@@ -8,6 +8,7 @@ const {
   createExpenseType,
   editExpense,
   createActualExpense,
+  matchExpensesValues,
 } = require("../services/period");
 
 const periodRouter = Router();
@@ -80,6 +81,17 @@ periodRouter.post("/newActualExpense", isUser(), async (req, res) => {
       expenseType,
       newExpenseValue
     );
+    res.json(result);
+  } catch (err) {
+    const parsed = parseError(err);
+    res.status(403).json({ code: 403, message: parsed.errors });
+  }
+});
+
+periodRouter.post("/matchExpensesValues", isUser(), async (req, res) => {
+  try {
+    const { periodId, expensesTypes } = req.body;
+    const result = await matchExpensesValues(periodId, expensesTypes);
     res.json(result);
   } catch (err) {
     const parsed = parseError(err);
