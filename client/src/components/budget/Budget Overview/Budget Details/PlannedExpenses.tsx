@@ -10,6 +10,7 @@ import Modal from "./Modal";
 interface PlannedExpensesProps {
   selectedPeriod: PeriodInterface | undefined;
   setPeriods: Function;
+  expenseChangeDetection: boolean;
   setExpenseChangeDetection: Function;
   setUpdateTotalSavings: Function;
 }
@@ -17,6 +18,7 @@ interface PlannedExpensesProps {
 export default function PlannedExpenses({
   selectedPeriod,
   setPeriods,
+  expenseChangeDetection,
   setExpenseChangeDetection,
   setUpdateTotalSavings,
 }: PlannedExpensesProps) {
@@ -87,21 +89,25 @@ export default function PlannedExpenses({
     <>
       <div className="w-[100%] py-2">
         <ul className="px-2">
-          {selectedPeriod!.expenses.map((expense) => (
-            <li key={expense.expenseType} className="flex justify-between g-2 p-1">
-              <div className="flex justify-between w-[90%]">
-                <div>{expense.expenseType}</div>
-                <div>{expense.plannedExpenses.toFixed(2)}</div>
-              </div>
-              <div>
-                <i
-                  className="fa-solid fa-pen-to-square hover:cursor-pointer"
-                  id={expense.expenseType}
-                  onClick={editExpenseClickHandler}
-                ></i>
-              </div>
-            </li>
-          ))}
+          {(expenseChangeDetection || !expenseChangeDetection) &&
+            selectedPeriod!.expenses.map((expense) => (
+              <li
+                key={expense.expenseType}
+                className="flex justify-between g-2 p-1"
+              >
+                <div className="flex justify-between w-[90%]">
+                  <div>{expense.expenseType}</div>
+                  <div>{expense.plannedExpenses.toFixed(2)}</div>
+                </div>
+                <div>
+                  <i
+                    className="fa-solid fa-pen-to-square hover:cursor-pointer"
+                    id={expense.expenseType}
+                    onClick={editExpenseClickHandler}
+                  ></i>
+                </div>
+              </li>
+            ))}
           {selectedPeriod!.endDate == null && (
             <li key={"newExpenseType"} className="flex justify-between mt-2">
               <input

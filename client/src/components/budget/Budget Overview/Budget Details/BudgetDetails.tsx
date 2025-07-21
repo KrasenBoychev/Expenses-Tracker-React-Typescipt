@@ -32,6 +32,7 @@ export default function BudgetDetails({
         <PlannedExpenses
           selectedPeriod={selectedPeriod}
           setPeriods={setPeriods}
+          expenseChangeDetection={expenseChangeDetection}
           setExpenseChangeDetection={setExpenseChangeDetection}
           setUpdateTotalSavings={setUpdateTotalSavings}
         />
@@ -44,6 +45,7 @@ export default function BudgetDetails({
           selectedPeriod={selectedPeriod}
           setPeriods={setPeriods}
           expenseChangeDetection={expenseChangeDetection}
+          setExpenseChangeDetection={setExpenseChangeDetection}
         />
       </div>
     </div>

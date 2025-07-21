@@ -6,45 +6,48 @@ interface ActualExpensesProps {
   selectedPeriod: PeriodInterface | undefined;
   setPeriods: Function;
   expenseChangeDetection: boolean;
+  setExpenseChangeDetection: Function;
 }
 
 export default function ActualExpenses({
   selectedPeriod,
   setPeriods,
   expenseChangeDetection,
+  setExpenseChangeDetection,
 }: ActualExpensesProps) {
-  const matchRedValuesHandler = async () => {
-    const expensesTypes: string[] = [];
-    selectedPeriod?.expenses.forEach((expense) => {
-      if (expense.actualExpenses > expense.plannedExpenses) {
-        expensesTypes.push(expense.expenseType);
-      }
-    });
+  const matchValuesHandler = async (e: React.SyntheticEvent) => {
+    const target = e.target as typeof e.target & {
+      id: string;
+    };
 
-    try {
-      const updatedPeriod = await matchExpensesValues(
-        selectedPeriod!._id,
-        expensesTypes
+    let expensesTypes: string[] = [];
+    if (target.id == "redValues") {
+      selectedPeriod?.expenses.forEach((expense) => {
+        if (expense.actualExpenses > expense.plannedExpenses) {
+          expensesTypes.push(expense.expenseType);
+        }
+      });
+    } else if (target.id == "allValues") {
+      expensesTypes = selectedPeriod!.expenses.map(
+        (expense) => expense.expenseType
       );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        return toast.error(e.message);
-      }
     }
-  };
-
-  const matchAllValuesHandler = async () => {
-    const expensesTypes = selectedPeriod!.expenses.map(
-      (expense) => expense.expenseType
-    );
 
     try {
-      const updatedPeriod = await matchExpensesValues(
+      const updatedPeriod: PeriodInterface = await matchExpensesValues(
         selectedPeriod!._id,
         expensesTypes
       );
 
-      
+      setPeriods((periods: PeriodInterface[]) => {
+        const findPeriod = periods.find(
+          (period) => period._id == selectedPeriod!._id
+        );
+        findPeriod!.expenses = updatedPeriod.expenses;
+        return periods;
+      });
+
+      setExpenseChangeDetection((prev: boolean) => !prev);
     } catch (e: unknown) {
       if (e instanceof Error) {
         return toast.error(e.message);
@@ -73,13 +76,15 @@ export default function ActualExpenses({
             <li className="flex justify-between mt-1 p-1">
               <button
                 className="w-[40%] text-red-600 underline"
-                onClick={matchRedValuesHandler}
+                id="redValues"
+                onClick={matchValuesHandler}
               >
                 Match red values
               </button>
               <button
                 className="w-[40%] underline"
-                onClick={matchAllValuesHandler}
+                id="allValues"
+                onClick={matchValuesHandler}
               >
                 Match all values
               </button>
