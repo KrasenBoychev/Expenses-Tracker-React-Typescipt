@@ -62,3 +62,7 @@ export async function editPlannedExpense(periodId: string, expenseType: string, 
 export async function addActualExpense(periodId: string, expenseType: string, newExpenseValue: number) {
   return await api.post(host + "/period/newActualExpense", { periodId, expenseType, newExpenseValue });
 }
+
+export async function matchExpensesValues(periodId: string, expensesTypes: string[]) {
+  return await api.post(host + "/period/matchExpensesValues", { periodId, expensesTypes });
+}
