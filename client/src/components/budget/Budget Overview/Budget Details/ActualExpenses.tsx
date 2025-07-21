@@ -7,6 +7,7 @@ interface ActualExpensesProps {
   setPeriods: Function;
   expenseChangeDetection: boolean;
   setExpenseChangeDetection: Function;
+  setUpdateTotalSavings: Function;
 }
 
 export default function ActualExpenses({
@@ -14,6 +15,7 @@ export default function ActualExpenses({
   setPeriods,
   expenseChangeDetection,
   setExpenseChangeDetection,
+  setUpdateTotalSavings,
 }: ActualExpensesProps) {
   const matchValuesHandler = async (e: React.SyntheticEvent) => {
     const target = e.target as typeof e.target & {
@@ -48,6 +50,7 @@ export default function ActualExpenses({
       });
 
       setExpenseChangeDetection((prev: boolean) => !prev);
+      setUpdateTotalSavings((prev: boolean) => !prev);
     } catch (e: unknown) {
       if (e instanceof Error) {
         return toast.error(e.message);

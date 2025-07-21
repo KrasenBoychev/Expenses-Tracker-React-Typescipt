@@ -46,6 +46,7 @@ export default function BudgetDetails({
           setPeriods={setPeriods}
           expenseChangeDetection={expenseChangeDetection}
           setExpenseChangeDetection={setExpenseChangeDetection}
+          setUpdateTotalSavings={setUpdateTotalSavings}
         />
       </div>
     </div>
