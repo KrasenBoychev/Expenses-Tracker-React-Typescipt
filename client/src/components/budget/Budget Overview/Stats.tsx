@@ -9,14 +9,14 @@ export default function Stats({ selectedPeriod }: StatsProps) {
   const [savings, setSavings] = useState<number>(0);
 
   useEffect(() => {
-    if (selectedPeriod && selectedPeriod.expenses.length > 0) {
-      let plannedExpensesCounter: number = 0;
-      selectedPeriod.expenses.forEach((expense) => {
+    let plannedExpensesCounter: number = 0;
+    if (selectedPeriod!.expenses.length > 0) {
+      selectedPeriod!.expenses.forEach((expense) => {
         plannedExpensesCounter += expense.plannedExpenses;
       });
-      setPlannedExpenses(plannedExpensesCounter);
-      setSavings(selectedPeriod.income - plannedExpensesCounter);
     }
+    setPlannedExpenses(plannedExpensesCounter);
+    setSavings(selectedPeriod!.income - plannedExpensesCounter);
   }, [selectedPeriod]);
   return (
     <div className="max-w-[800px] py-15 mx-auto">
