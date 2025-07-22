@@ -9,6 +9,7 @@ const {
   editExpense,
   createActualExpense,
   matchExpensesValues,
+  completePeriod,
 } = require("../services/period");
 
 const periodRouter = Router();
@@ -93,6 +94,27 @@ periodRouter.post("/matchExpensesValues", isUser(), async (req, res) => {
     const { periodId, expensesTypes } = req.body;
     const result = await matchExpensesValues(periodId, expensesTypes);
     res.json(result);
+  } catch (err) {
+    const parsed = parseError(err);
+    res.status(403).json({ code: 403, message: parsed.errors });
+  }
+});
+
+periodRouter.post("/completePeriod", isUser(), async (req, res) => {
+  try {
+    const { periodId, budgetId } = req.body;
+
+    const todayDate = new Date();
+    const completedPeriod = await completePeriod(periodId, todayDate);
+
+    const tomorrowDate = todayDate.setDate(todayDate.getDate() + 1);
+    const data = {
+      startDate: tomorrowDate,
+      budgetId: budgetId,
+    };
+    const newPeriod = await createNewPeriod(data);
+
+    res.json(newPeriod);
   } catch (err) {
     const parsed = parseError(err);
     res.status(403).json({ code: 403, message: parsed.errors });
