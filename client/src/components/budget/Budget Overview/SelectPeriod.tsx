@@ -2,15 +2,27 @@ import type { PeriodInterface } from "../../../interfaces/budget";
 
 interface SelectPeriodProps {
   selectedPeriod: PeriodInterface | undefined;
+  setSelectedPeriod: Function;
   periods: PeriodInterface[] | null;
 }
 
 export default function SelectPeriod({
   selectedPeriod,
+  setSelectedPeriod,
   periods,
 }: SelectPeriodProps) {
   const renderDate = (date: string) => {
     return new Date(date).toLocaleDateString();
+  };
+
+  const showSelectedPeriod = (e: React.SyntheticEvent) => {
+    const target = e.target as typeof e.target & {
+      value: string;
+    };
+    const newSelectedPeriod = periods?.find(
+      (period) => period._id == target.value
+    );
+    setSelectedPeriod(newSelectedPeriod);
   };
   return (
     <div>
@@ -18,17 +30,21 @@ export default function SelectPeriod({
         name="periods"
         id="periods"
         defaultValue={selectedPeriod!._id}
-        className="w-[30%] text-black text-center appearance-none rounded cursor-pointer"
+        className="w-[50%] text-black text-center appearance-none rounded cursor-pointer"
+        onChange={showSelectedPeriod}
       >
-        <option value={selectedPeriod!._id}>{`${renderDate(
-          selectedPeriod!.startDate
-        )} - now`}</option>
-        {periods?.map((period, index) => {
-          if (index !== 0) {
+        {periods?.map((period) => {
+          if (period.endDate !== null) {
             return (
-              <option value={period._id}>{`${renderDate(
+              <option key={period._id} value={period._id}>{`${renderDate(
                 period.startDate
               )} - ${renderDate(period.endDate!)}`}</option>
+            );
+          } else {
+            return (
+              <option key={period._id} value={period._id}>{`${renderDate(
+                selectedPeriod!.startDate
+              )} - now`}</option>
             );
           }
         })}
