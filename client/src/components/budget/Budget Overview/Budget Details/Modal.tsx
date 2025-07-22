@@ -11,6 +11,7 @@ interface ModalProps {
   editExpense: ExpenseInterface | undefined;
   periodId: string;
   setPeriods: Function;
+  setExpenseChangeDetection: Function;
   setUpdateTotalSavings: Function;
 }
 
@@ -19,6 +20,7 @@ export default function Modal({
   editExpense,
   periodId,
   setPeriods,
+  setExpenseChangeDetection,
   setUpdateTotalSavings,
 }: ModalProps) {
   const [plannedExpenseValue, setPlannedExpenseValue] = useState<
@@ -42,6 +44,7 @@ export default function Modal({
         return periods;
       });
       
+      setExpenseChangeDetection((prev: boolean) => !prev);
       setUpdateTotalSavings((prev: boolean) => !prev);
       setOpenModal(false);
     } catch (e: unknown) {
