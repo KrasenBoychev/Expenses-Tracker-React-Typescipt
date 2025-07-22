@@ -38,10 +38,17 @@ export default function BudgetOverview({
         />
       ) : (
         <>
-          <SelectPeriod selectedPeriod={selectedPeriod} periods={periods} />
+          <SelectPeriod
+            selectedPeriod={selectedPeriod}
+            setSelectedPeriod={setSelectedPeriod}
+            periods={periods}
+          />
           <Stats selectedPeriod={selectedPeriod} />
           <Options
+            budget={budget}
             selectedPeriod={selectedPeriod}
+            setSelectedPeriod={setSelectedPeriod}
+            setPeriods={setPeriods}
             setBudgetDetails={setBudgetDetails}
           />
         </>
