@@ -73,6 +73,15 @@ async function matchExpensesValues(periodId, expensesTypes) {
   return getPeriod;
 }
 
+async function completePeriod(periodId, endDate) {
+  return await Period.updateOne(
+    { _id: periodId },
+    {
+      $set: { endDate },
+    }
+  );
+}
+
 module.exports = {
   getPeriods,
   createNewPeriod,
@@ -80,4 +89,5 @@ module.exports = {
   editExpense,
   createActualExpense,
   matchExpensesValues,
+  completePeriod,
 };
