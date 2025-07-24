@@ -82,6 +82,7 @@ export default function Login() {
                     aria-describedby="email-error"
                     value={values.email}
                     onChange={changeHandler}
+                    data-testid="login-email-input"
                   />
                   <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                     <svg
@@ -97,7 +98,11 @@ export default function Login() {
                   </div>
                 </div>
                 {errors.email && (
-                  <p className="text-xs text-red-600 mt-2" id="email-error">
+                  <p
+                    className="text-xs text-red-600 mt-2"
+                    id="email-error"
+                    data-testid="login-email-error"
+                  >
                     {errors.email}
                   </p>
                 )}
@@ -121,6 +126,7 @@ export default function Login() {
                     aria-describedby="password-error"
                     value={values.password}
                     onChange={changeHandler}
+                    data-testid="login-password-input"
                   />
                   <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                     <svg
@@ -136,7 +142,11 @@ export default function Login() {
                   </div>
                 </div>
                 {errors.password && (
-                  <p className="text-xs text-red-600 mt-2" id="password-error">
+                  <p
+                    className="text-xs text-red-600 mt-2"
+                    id="password-error"
+                    data-testid="login-password-error"
+                  >
                     {errors.password}
                   </p>
                 )}
@@ -146,6 +156,7 @@ export default function Login() {
               <button
                 type="submit"
                 className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                data-testid="login-form-button"
               >
                 Sign in
               </button>
