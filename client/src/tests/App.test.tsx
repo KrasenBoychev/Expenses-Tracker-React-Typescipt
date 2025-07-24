@@ -1,8 +1,12 @@
-import ReactDOMClient from "react-dom/client";
 import { it } from "vitest";
+import { render } from "@testing-library/react";
 import App from "../App";
+import { BrowserRouter } from "react-router-dom";
 
-it("renders App without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOMClient.createRoot(div).render(<App />);
+it("renders 'App' without crashing", () => {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
 });
