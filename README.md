@@ -1,4 +1,3 @@
-
 # Expenses-Tracker-React-Typescript
 
 Expenses Tracker is an application that allows users to create one or more budgets, plan their expenses and track how much money they are going to save. Users can add income and actual expenses which changes automatically the money they are planning to save. Also, the application is great for families as one budget can be shared between its members. Everyone can add their income and expenses and can change the planned expenses.
@@ -14,10 +13,25 @@ There is an option to complete the period that has been started and a new period
 
 ## Description
 
-* ### Home Page (not authenticated users):
+- ### Home Page (not authenticated users):
 
-  ![Alt text](./images_README/Home(NoAuth).png)
+  ![Alt text](<./images_README/Home(NoAuth).png>)
 
+- ### Home Page (authenticated users):
+
+  ![Alt text](<./images_README/Home(Auth).png>)
+
+- ### About Page (all users):
+
+  ![Alt text](./images_README/About.png)
+
+- ### Login Page (not authenticated users):
+
+  ![Alt text](./images_README/Login.png)
+
+- ### Register Page (not authenticated users):
+
+  ![Alt text](./images_README/Register.png)
 
 ### Installing
 
