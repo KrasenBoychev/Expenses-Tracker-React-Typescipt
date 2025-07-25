@@ -16,7 +16,7 @@ There is an option to complete the period that has been started and a new period
 
 * ### Home Page (not authenticated users):
 
-  ![Alt text](./images-ReadMe/Home(NoAuth).png)
+  ![Alt text](./images_README/Home(NoAuth).png)
 
 
 ### Installing
