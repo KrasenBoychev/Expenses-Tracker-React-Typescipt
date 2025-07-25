@@ -11,6 +11,7 @@ import Logout from "./authentication/Logout";
 import HomeAuth from "./home/HomeAuth";
 import BudgetMiddleware from "./budget/BudgetMiddleware";
 import NotFound from "./not found/NotFound";
+import About from "./about/About";
 
 export default function Layout() {
   const { isAuthenticated } = useAuthContext();
@@ -25,6 +26,8 @@ export default function Layout() {
           ) : (
             <Route path="/" element={<HomeNoAuth />} />
           )}
+
+          <Route path="/about" element={<About />} />
 
           <Route element={<PublicGuard />}>
             <Route path="/login" element={<Login />} />
