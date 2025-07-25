@@ -108,3 +108,20 @@ it("renders error message when passwords don't match", () => {
   fireEvent.click(submitBtn);
   expect(screen.getByTestId("register-rePass-error")).toBeVisible();
 });
+
+it("returns server status code 200 when there is a fetch request with valid email and password and 403 if the email exists", async () => {
+  render(RegisterComponent);
+  return await fetch("http://localhost:5000/users/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: "test@gmail.com", password: "test" }),
+  })
+    .then((data) => {
+      expect(data.status).toBe(200);
+    })
+    .catch((data) => {
+      expect(data.actual).toBe(403);
+    });
+});
