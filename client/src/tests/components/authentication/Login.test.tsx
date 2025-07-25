@@ -1,11 +1,5 @@
-import { it, expect, vi } from "vitest";
-import {
-  fireEvent,
-  getByDisplayValue,
-  getByRole,
-  render,
-  screen,
-} from "@testing-library/react";
+import { it, expect } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Login from "../../../components/authentication/Login";
 
