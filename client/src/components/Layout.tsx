@@ -10,6 +10,7 @@ import Register from "./authentication/Register";
 import Logout from "./authentication/Logout";
 import HomeAuth from "./home/HomeAuth";
 import BudgetMiddleware from "./budget/BudgetMiddleware";
+import NotFound from "./not found/NotFound";
 
 export default function Layout() {
   const { isAuthenticated } = useAuthContext();
@@ -34,6 +35,8 @@ export default function Layout() {
             <Route path="/logout" element={<Logout />} />
             <Route path="/:budgetId" element={<BudgetMiddleware />} />
           </Route>
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
