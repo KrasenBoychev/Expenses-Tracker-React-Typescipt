@@ -36,6 +36,7 @@ it("renders 'Password' label and input", () => {
 });
 
 it("does not render error paragraphs", () => {
+  render(LoginComponent);
   expect(screen.queryByTestId("login-email-error")).not.toBeInTheDocument();
   expect(screen.queryByTestId("login-password-error")).not.toBeInTheDocument();
 });
@@ -75,4 +76,30 @@ it("renders error message when password is less than 3 symbols", () => {
   fireEvent.change(passwordInput, { target: { value: "12" } });
   fireEvent.click(submitBtn);
   expect(screen.getByTestId("login-password-error")).toBeVisible();
+});
+
+it("returns server status code 200 when there is a fetch request with correct credentials", async () => {
+  render(LoginComponent);
+  return await fetch("http://localhost:5000/users/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: "k@gmail.com", password: "kkk" }),
+  }).then((data) => {
+    expect(data.status).toBe(200);
+  });
+});
+
+it("returns server status code 403 when there is a fetch request with correct credentials", async () => {
+  render(LoginComponent);
+  return await fetch("http://localhost:5000/users/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: "k@gmail.com", password: "kk" }),
+  }).then((data) => {
+    expect(data.status).toBe(403);
+  });
 });
