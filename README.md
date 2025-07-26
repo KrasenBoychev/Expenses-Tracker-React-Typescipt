@@ -33,6 +33,26 @@ There is an option to complete the period that has been started and a new period
 
   ![Alt text](./images_README/Register.png)
 
+- ### Budget Overview Page (authenticated users):
+
+  ![Alt text](./images_README/Overview.png)
+
+- ### Budget Details Page(authenticated users):
+
+  ![Alt text](./images_README/Details.png)
+
+- ### Add Income Page (authenticated users):
+
+  ![Alt text](./images_README/Income.png)
+
+- ### Add Expense Page (authenticated users):
+
+  ![Alt text](./images_README/Expense.png)
+
+- ### Members Page (authenticated users):
+
+  ![Alt text](./images_README/Members.png)
+
 ### Installing
 
 - Clone the repository or download all files.
