@@ -41,6 +41,7 @@ export default function AddExpense({
       });
 
       setInputValue("");
+      toast.success("Expense successfully added!");
     } catch (e: unknown) {
       if (e instanceof Error) {
         return toast.error(e.message);

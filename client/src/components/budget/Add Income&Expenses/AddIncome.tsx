@@ -35,6 +35,7 @@ export default function AddIncome({
 
       setUpdateTotalSavings((value: boolean) => !value);
       setInputValue("");
+      toast.success("Income successfully added!");
     } catch (e: unknown) {
       if (e instanceof Error) {
         return toast.error(e.message);
