@@ -53,6 +53,7 @@ export default function AddIncome({
       <button
         className="w-[70px] bg-green-200 rounded"
         onClick={addValueHandler}
+        data-testid="add-income-button"
       >
         Add
       </button>

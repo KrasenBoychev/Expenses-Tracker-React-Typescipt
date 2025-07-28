@@ -73,6 +73,7 @@ export default function AddExpense({
             <button
               className="w-[70px] p-2 bg-green-200 rounded self-center"
               onClick={addValueHandler}
+              data-testid="add-expense-button"
             >
               Add
             </button>
