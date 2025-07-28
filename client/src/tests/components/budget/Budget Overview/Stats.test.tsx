@@ -2,37 +2,7 @@ import { it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Stats from "../../../../components/budget/Budget Overview/Stats";
-import type { PeriodInterface } from "../../../../interfaces/budget";
-
-const selectedPeriod: PeriodInterface = {
-  _id: "6883be1e10ed396049b94d94",
-  startDate: "2025-07-25T17:25:50.649Z",
-  endDate: null,
-  income: 1000,
-  expenses: [
-    {
-      expenseType: "Food",
-      plannedExpenses: 200,
-      actualExpenses: 350,
-    },
-    {
-      expenseType: "Going out",
-      plannedExpenses: 100,
-      actualExpenses: 0,
-    },
-    {
-      expenseType: "Holidays",
-      plannedExpenses: 100,
-      actualExpenses: 0,
-    },
-    {
-      expenseType: "Pets",
-      plannedExpenses: 40,
-      actualExpenses: 0,
-    },
-  ],
-  budgetId: "6883be1c10ed396049b94d8f",
-};
+import { selectedPeriod } from "../../../data";
 
 const StatsComponent = (
   <BrowserRouter>
