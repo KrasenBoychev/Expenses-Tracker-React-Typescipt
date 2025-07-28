@@ -1,8 +1,8 @@
 import { it, expect } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import Options from "../../../../components/budget/Budget Overview/Options/Options";
-import { budget, selectedPeriod } from "../../../data";
+import Options from "../../../../../components/budget/Budget Overview/Options/Options";
+import { budget, selectedPeriod } from "../../../../data";
 
 const OptionsComponent = (
   <BrowserRouter>

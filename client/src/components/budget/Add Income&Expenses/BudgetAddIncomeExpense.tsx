@@ -1,20 +1,15 @@
 import { useState } from "react";
-import type {
-  BudgetInterface,
-  PeriodInterface,
-} from "../../../interfaces/budget";
+import type { PeriodInterface } from "../../../interfaces/budget";
 import AddIncome from "./AddIncome";
 import AddExpense from "./AddExpense";
 
 interface BudgetAddIncomeExpenseProps {
-  budget: BudgetInterface | null;
   periods: PeriodInterface[] | null;
   setPeriods: Function;
   setUpdateTotalSavings: Function;
 }
 
 export default function BudgetAddIncomeExpense({
-  budget,
   periods,
   setPeriods,
   setUpdateTotalSavings,
