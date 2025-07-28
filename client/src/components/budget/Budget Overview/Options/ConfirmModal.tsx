@@ -1,64 +1,9 @@
-import { useState } from "react";
+import toast from "react-hot-toast";
+import { completePeriod } from "../../../../api/expenses-api";
 import type {
   BudgetInterface,
   PeriodInterface,
-} from "../../../interfaces/budget";
-import { completePeriod } from "../../../api/expenses-api";
-import toast from "react-hot-toast";
-interface OptionsProps {
-  budget: BudgetInterface | null;
-  selectedPeriod: PeriodInterface | undefined;
-  setSelectedPeriod: Function;
-  setPeriods: Function;
-  setBudgetDetails: Function;
-}
-
-export default function Options({
-  budget,
-  selectedPeriod,
-  setSelectedPeriod,
-  setPeriods,
-  setBudgetDetails,
-}: OptionsProps) {
-  const [openModal, setOpenModal] = useState(false);
-
-  const budgetDetailsHandler = () => {
-    setBudgetDetails(true);
-  };
-
-  const confirmHandler = () => {
-    setOpenModal(true);
-  };
-  return (
-    <>
-      <div className="flex justify-center gap-40 my-5">
-        <button
-          className="py-3 px-5 bg-gray-400 rounded"
-          onClick={budgetDetailsHandler}
-        >
-          Details
-        </button>
-        {selectedPeriod!.endDate == null && (
-          <button
-            className="py-3 px-5 bg-red-500 rounded"
-            onClick={confirmHandler}
-          >
-            Complete Period
-          </button>
-        )}
-      </div>
-      {openModal && (
-        <ConfirmModal
-          setOpenModal={setOpenModal}
-          selectedPeriod={selectedPeriod}
-          setSelectedPeriod={setSelectedPeriod}
-          setPeriods={setPeriods}
-          budget={budget}
-        />
-      )}
-    </>
-  );
-}
+} from "../../../../interfaces/budget";
 
 interface ConfirmModalProps {
   setOpenModal: Function;
@@ -67,7 +12,7 @@ interface ConfirmModalProps {
   setPeriods: Function;
   budget: BudgetInterface | null;
 }
-function ConfirmModal({
+export default function ConfirmModal({
   setOpenModal,
   selectedPeriod,
   setSelectedPeriod,
@@ -97,7 +42,10 @@ function ConfirmModal({
   };
   return (
     <>
-      <div className="hs-overlay size-full fixed top-0 start-0 z-80 overflow-x-hidden overflow-y-auto">
+      <div
+        className="hs-overlay size-full fixed top-0 start-0 z-80 overflow-x-hidden overflow-y-auto"
+        data-testid="confirm-modal-container"
+      >
         <div className="mt-12 opacity-100 duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
           <div className="relative flex flex-col bg-white shadow-lg rounded-xl dark:bg-neutral-900">
             <div className="absolute top-2 end-2">

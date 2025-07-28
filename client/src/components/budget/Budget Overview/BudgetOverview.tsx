@@ -5,7 +5,7 @@ import type {
 } from "../../../interfaces/budget";
 import SelectPeriod from "./SelectPeriod";
 import Stats from "./Stats";
-import Options from "./Options";
+import Options from "./Options/Options";
 import BudgetDetails from "./Budget Details/BudgetDetails";
 
 interface BudgetOverviewProps {
