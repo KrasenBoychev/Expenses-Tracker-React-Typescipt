@@ -95,17 +95,19 @@ export default function BudgetMembers({
       <h3 className="w-[100%] p-3 text-xl text-center border-b-1 border-black">
         All Members
       </h3>
-      <ul className="flex flex-col gap-2 p-3">
+      <ul className="flex flex-col gap-2 p-3" data-testid="budget-members-ul">
         <li className="flex justify-between gap-2">
           <input
             type="text"
             className="w-[80%] h-7 rounded"
             value={newMember}
             onChange={(e) => setNewMember(e.target.value)}
+            data-testid="budget-members-input"
           />
           <button
             className="w-[70px] py-1 px-2 bg-green-300 rounded"
             onClick={addNewMemberHandler}
+            data-testid="budget-members-button"
           >
             add
           </button>
