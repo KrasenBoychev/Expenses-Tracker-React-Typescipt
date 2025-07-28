@@ -4,15 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import BudgetMembers from "../../../components/budget/BudgetMembers";
 import type { BudgetInterface } from "../../../interfaces/budget";
 import { act } from "react";
+import { budget } from "../../data";
 
 const noBudget = null;
-const hasBudget: BudgetInterface = {
-  _id: "6883be1c10ed396049b94d8f",
-  budgetName: "Family Budget",
-  cards: [],
-  members: ["68712707cbac7c3410e9408c"],
-  allPeriods: [],
-};
 
 const BudgetMembersComponent = (budget: BudgetInterface | null) => {
   return (
@@ -27,7 +21,7 @@ it("renders 'BudgetMembers' with budget value 'null' without crashing", () => {
 });
 
 it("renders 'BudgetMembers' with budget value 'object' without crashing", () => {
-  render(BudgetMembersComponent(hasBudget));
+  render(BudgetMembersComponent(budget));
 });
 
 it("renders 'All Members' heading", () => {
@@ -47,7 +41,7 @@ it("renders only one 'li' element if the budget value is 'null'", () => {
 });
 
 it("renders two 'li' elements if the budget has one member", async () => {
-  render(BudgetMembersComponent(hasBudget));
+  render(BudgetMembersComponent(budget));
   await waitFor(() => {
     expect(screen.getByText("k@gmail.com")).toBeVisible();
     expect(screen.getByTestId("budget-members-ul").childElementCount).toEqual(
@@ -57,7 +51,7 @@ it("renders two 'li' elements if the budget has one member", async () => {
 });
 
 it("renders the new member when 'add' button is clicked", async () => {
-  render(BudgetMembersComponent(hasBudget));
+  render(BudgetMembersComponent(budget));
 
   const input = screen.getByTestId("budget-members-input");
   const addButton = screen.getByTestId("budget-members-button");
@@ -82,8 +76,8 @@ it("renders the new member when 'add' button is clicked", async () => {
 });
 
 it("removes a member when 'remove' button is clicked", async () => {
-  hasBudget.members.push("6887279090475e736ad08089");
-  render(BudgetMembersComponent(hasBudget));
+  budget.members.push("6887279090475e736ad08089");
+  render(BudgetMembersComponent(budget));
 
   await waitFor(async () => {
     const removeButton = screen.getByTestId("6887279090475e736ad08089");

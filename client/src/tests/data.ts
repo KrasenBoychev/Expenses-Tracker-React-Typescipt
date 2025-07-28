@@ -54,3 +54,11 @@ export const periods = [
   anotherPeriod,
   selectedPeriod,
 ]
+
+export const budget = {
+  _id: "6883be1c10ed396049b94d8f",
+  budgetName: "Family Budget",
+  cards: [],
+  members: ["68712707cbac7c3410e9408c"],
+  allPeriods: [],
+}
