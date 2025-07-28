@@ -122,6 +122,7 @@ export default function BudgetMembers({
               className="w-[70px] py-1 px-2 bg-red-300 rounded"
               id={member._id}
               onClick={removeMemberHandler}
+              data-testid={member._id}
             >
               {member._id == userId ? "leave" : "remove"}
             </button>
